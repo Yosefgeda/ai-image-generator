@@ -6,3 +6,13 @@
     box-sizing: border-box;
     font-family: "poppins", sans-serif;
 }
+
+.image-generator {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
