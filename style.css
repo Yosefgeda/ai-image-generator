@@ -46,11 +46,36 @@
 }
 
 .generate-form .prompt-input {
-    width: 100%;
+    width: 60%;
     height: 100%;
     font-size: 1rem;
     outline: none;
     border: none;
     background: none;
     padding: 0 17px;
+}
+
+.generate-form .controls {
+    display: flex;
+    height: 100%;
+    gap: 15px;
+}
+
+.generate-form .img-quantity {
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
+
+.generate-form .generate-btn {
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    background: #4949E7;
+    padding: 0 25px;
+    cursor: pointer;
 }
