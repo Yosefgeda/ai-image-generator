@@ -83,6 +83,7 @@
 .image-gallery {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
     padding: 0 15px;
     max-width: 1250px;
     margin: 50px 0;
@@ -107,6 +108,17 @@
     position: absolute;
     bottom: 15px;
     right: 15px;
+    background: white;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-gallery .img-card:hover .download-btn {
+    display: flex;
 }
 
 .image-gallery .img-card .download-btn img {
