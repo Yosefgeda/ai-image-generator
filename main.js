@@ -3,23 +3,23 @@ const imageGallery = document.querySelector('.image-gallery');
 
 const apiKey = 'k65he_gPlyR76ovg_qq9esbN_O7BmjJwtfWTTVov65g';
 
-const updateImageCard = (imgDataArray) => {
-    imgDataArray.forEach((imgObject, index) => {
-        const imgCard = imageGallery.querySelectorAll('.img-card')[index];
-        const imgElement = imgCard.querySelector('img');
-        const downloadBtn = imgCard.querySelector(".download-btn");
+// const updateImageCard = (imgDataArray) => {
+//     imgDataArray.forEach((imgObject, index) => {
+//         const imgCard = imageGallery.querySelectorAll('.img-card')[index];
+//         const imgElement = imgCard.querySelector('img');
+//         const downloadBtn = imgCard.querySelector(".download-btn");
 
-        const aiGeneratedImg = `data:image/jpeg:base64,${imgObject.b64_json}`;
-        imgElement.src = aiGeneratedImg;
+//         const aiGeneratedImg = `data:image/jpeg:base64,${imgObject.b64_json}`;
+//         imgElement.src = aiGeneratedImg;
 
-        imgElement.onload = () => {
-            imgCard.classList.remove("loading");
-            downloadBtn.setAttribute("href", aiGeneratedImg);
-            downloadBtn.setAttribute("download", `${new Date().getTime()}.jpg`);
-        }
-    });
-    console.log(imgDataArray);
-}
+//         imgElement.onload = () => {
+//             imgCard.classList.remove("loading");
+//             downloadBtn.setAttribute("href", aiGeneratedImg);
+//             downloadBtn.setAttribute("download", `${new Date().getTime()}.jpg`);
+//         }
+//     });
+//     console.log(imgDataArray);
+// }
 
 const generateAiImages = async (userPrompt, userImgQuantity) => {
     const response = await fetch(`https://api.unsplash.com/search/photos?
@@ -31,15 +31,11 @@ const generateAiImages = async (userPrompt, userImgQuantity) => {
     let imgMarkup = res.map(itm =>
         `
         <div class="img-card">
-            <img src="${itm.urls.full}" alt=${res.alt_description} class="generated-images"/>
-            <a href="#" class="download-btn">
-                <img src="images/download.svg" alt="download"/>
-            </a>
+            <img src="${itm.urls.full}" alt=${itm.alt_description} class="generated-images"/>
         </div>
     `
     ).join('');
     imageGallery.innerHTML += imgMarkup;
-    updateImageCard(res);
 }
 
 const handleSubmisson = (e) => {
