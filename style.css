@@ -43,6 +43,7 @@
     justify-content: space-between;
     background: #fff;
     border-radius: 30px;
+    margin-top: 40px;
 }
 
 .generate-form .prompt-input {
